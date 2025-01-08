@@ -6,6 +6,7 @@ describe('Test Contact Us form via Test-Store', () => {
     cy.get("a[href$='contact']").click();
     // cy.xpath("//a[contains(@href, 'contact')]").click();
     cy.get('#ContactUsFrm_first_name').type('Nadegda');
+    cy.get('#ContactUsFrm_email').should('have.attr', 'name', 'email');
     cy.get('#ContactUsFrm_email').type('nadegda@nadegda.com');
     cy.get('#ContactUsFrm_enquiry').type('Nadegda');
     cy.get("button[title='Submit']").click();
