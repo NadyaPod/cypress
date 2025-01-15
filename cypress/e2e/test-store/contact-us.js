@@ -5,7 +5,7 @@ describe('Test Contact Us form via Test-Store', () => {
     cy.title().should('include', 'A place to practice');
     // cy.get('#contact-us > .thumbnail').click()
     // cy.get('.info_links_footer > :nth-child(5) > a').click();\
-    cy.get("a[href$='contact']").click();
+    cy.get("a[href$='contact']").click().then((itemName) => cy.log(itemName.text()));
     // cy.xpath("//a[contains(@href, 'contact')]").click();
     cy.get('#ContactUsFrm_first_name').type('Nadegda');
     cy.get('#ContactUsFrm_email').should('have.attr', 'name', 'email');
