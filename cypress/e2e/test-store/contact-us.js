@@ -14,6 +14,11 @@ describe('Test Contact Us form via Test-Store', () => {
     cy.get("button[title='Submit']").click();
     cy.url().should('include', 'contact');
     cy.get('.mb40 > :nth-child(3)').should('have.text', 'Your enquiry has been successfully sent to the store owner!');
+    cy.visit('https://automationteststore.com/');
+    cy.get("a[href$='contact']").click();
+    cy.get('#ContactUsFrm label').first().then(el => {
+      expect(el.text()).to.be.eq('First name:')
+    }) 
   });
 })
 
