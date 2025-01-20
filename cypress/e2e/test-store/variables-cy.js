@@ -8,8 +8,6 @@ describe('Verify variables', () => {
       cy.log('Log text: ' + headerText);
       expect(headerText).to.be.eq('Skincare')
     });
-  
-  
   });
 })
 
