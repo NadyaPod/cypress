@@ -1,6 +1,7 @@
 describe('Test Contact Us form via WebdriverUni', () => {
   it('Should be able to submit', () => {
-    cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
+    cy.visit('https://webdriveruniversity.com/');
+    cy.get('#contact-us').invoke('removeAttr', 'target').click();
     // cy.get('#contact-us > .thumbnail').click()
     cy.get('[name="first_name"]').type('Nadegda');
     cy.get('[name="last_name"]').type('Nadegda');
@@ -10,12 +11,15 @@ describe('Test Contact Us form via WebdriverUni', () => {
     cy.get('h1').should('have.text', 'Thank You for your Message!');
 
   });
-  it.only('Should not be able to submit', () => {
+  it('Should not be able to submit', () => {
     cy.visit('https://webdriveruniversity.com/Contact-Us/contactus.html');
     cy.get('[name="first_name"]').type('Nadegda');
     cy.get('[name="last_name"]').type('Nadegda');
     cy.get('[type="submit"]').click( );
     cy.get('body').contains('Error: all fields are required');
+  })
+  it.only('Origin test', () => {
+    cy.visit('https://webdriveruniversity.com/');
   })
 })
 
